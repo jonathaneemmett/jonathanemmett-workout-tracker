@@ -1,21 +1,23 @@
 <script>
 	import { enhance } from '$app/forms';
+	import { SITE_NAME } from '$lib/utils/constants';
 </script>
 
-<h1 class="login__headline">Login</h1>
-<form action="?/login" method="POST" class="login__form" use:enhance>
-	<div class="login__control">
+<h1 class="login__headline">{SITE_NAME}</h1>
+<p>Login and let's do this!</p>
+<form action="?/login" method="POST" class="form" use:enhance>
+	<div class="form__control">
 		<label for="email" class="visually-hidden">Email</label>
 		<input type="email" name="email" id="email" placeholder="Email" />
 	</div>
-	<div class="login__control">
+	<div class="form__control">
 		<label for="password" class="visually-hidden">Password</label>
 		<input type="password" name="password" id="password" placeholder="Password" />
 	</div>
-	<div class="login__control">
-		<button type="submit" class="login__button">Login</button>
+	<div class="form__control">
+		<button type="submit" class="btn btn-primary">Login</button>
 	</div>
-	<div class="login__switch">
+	<div class="form__switch">
 		Don't have an account? <a href="/register">Register!</a>
 	</div>
 </form>
@@ -24,60 +26,17 @@
 	.login__headline {
 		margin-block-end: 1rem;
 		color: var(--text1);
+		font-weight: 400;
+		font-family: 'Space Grotesk', sans-serif;
 	}
 
-	.login__form {
-		width: 275px;
-	}
-
-	.login__control {
-		margin-block-end: 1rem;
-	}
-
-	.login__control input {
-		width: 100%;
-		padding: 0.5rem;
-		border: 1px solid #ccc;
-		border-radius: 0.25rem;
-	}
-
-	.login__button {
-		width: 100%;
-		padding: 0.5rem;
-		border: 1px solid #ccc;
-		border-radius: 0.25rem;
-		background-color: transparent;
-		color: var(--text1);
-	}
-
-	.login__button:hover {
-		background-color: #ccc;
-		cursor: pointer;
-	}
-
-	.login__switch {
-		width: 100%;
-		text-align: center;
-		margin-block-start: 1rem;
+	p {
+		margin-block-end: 2rem;
 		color: var(--text1);
 		font-size: 0.8rem;
-	}
-
-	.login__switch a {
-		color: var(--text1);
-	}
-
-	.login__switch a:hover {
-		color: var(--text2);
-	}
-
-	@media screen and (max-width: 37.5em) {
-		.login {
-			padding-inline: 1rem;
-		}
-
-		.login__form {
-			width: 100%;
-		}
+		line-height: 1.5;
+		letter-spacing: 0.08rem;
+		max-width: 75%;
+		text-align: center;
 	}
 </style>

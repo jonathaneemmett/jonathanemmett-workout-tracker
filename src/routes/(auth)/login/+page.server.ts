@@ -5,7 +5,7 @@ import argon2 from 'argon2';
 
 export const load = (async ({ locals }) => {
 	if (locals?.user) {
-		throw redirect(302, '/');
+		throw redirect(302, '/profile');
 	}
 }) satisfies PageServerLoad;
 
@@ -45,6 +45,6 @@ export const actions: Actions = {
 			maxAge: 60 * 60 * 24 * 7 // 1 week
 		});
 
-		throw redirect(302, '/');
+		throw redirect(302, '/profile');
 	}
 };

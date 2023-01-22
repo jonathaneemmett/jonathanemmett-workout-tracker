@@ -6,11 +6,13 @@
 
 <style>
 	.auth {
-		height: 100%;
+		height: auto;
+		margin-block-start: 200px;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		overflow: hidden;
 	}
 
 	@media screen and (max-width: 37.5em) {

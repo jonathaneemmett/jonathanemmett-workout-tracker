@@ -29,7 +29,10 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@fortawesome/free-brands-svg-icons": "^6.2.1",
+		"@fortawesome/free-solid-svg-icons": "^6.2.1",
 		"argon2": "^0.30.3",
-		"mongoose": "^6.8.4"
+		"mongoose": "^6.8.4",
+		"svelte-fa": "^3.0.3"
 	}
 }

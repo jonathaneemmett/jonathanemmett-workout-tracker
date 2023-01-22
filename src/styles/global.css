@@ -1,13 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 :root {
-	--bg-body: #3f3f3f;
+	--bg-body: #576cd6;
+	--bg-body2: #285ca3;
 	--text1: #fff;
 	--text2: #008080;
+
+	--bg-btn-primary: #293a59;
+	--bg-btn-secondary: #2f4474;
+
+	--box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.6);
+	--select-border: #ccc;
+	--select-arrow: #ccc;
 }
 
-* {
-	margin: 0;
-	padding: 0;
+*,
+*::before,
+*::after {
 	box-sizing: border-box;
 }
 
@@ -21,7 +30,14 @@ body {
 }
 
 body {
-	background-color: var(--bg-body);
+	background: linear-gradient(
+			to left top,
+			var(--bg-body2) 0% /*bottom-right color*/,
+			var(--bg-body) 50% /*middle color*/,
+			var(--bg-body2) 100% /*top-left color*/
+		),
+		linear-gradient(var(--bg-body), var(--bg-body))
+			/*"faked" black background make sure to add last or it will appear before the transparent/colored layer*/;
 	font-family: 'Roboto', sans-serif;
 	font-size: 16px;
 }
@@ -45,4 +61,111 @@ li {
 	clip-path: inset(100%);
 	clip: rect(0 0 0 0);
 	overflow: hidden;
+}
+
+/** Forms **/
+
+.form {
+	width: 400px;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.form-control {
+	margin-block-end: 1rem;
+}
+
+.form__control input,
+.form__control textarea {
+	width: 100%;
+	padding-block: 0.9rem;
+	padding-inline: 1rem;
+	border: 1px solid #ccc;
+	border-radius: 0.5rem;
+	font-size: 1rem;
+	font-weight: 600;
+}
+
+.form__switch {
+	width: 100%;
+	text-align: center;
+	margin-block-start: 1rem;
+	color: var(--text1);
+	font-size: 0.8rem;
+}
+
+.form__switch a {
+	color: var(--text1);
+}
+
+.form__switch a:hover {
+	color: var(--text2);
+}
+
+.multi__input {
+	display: flex;
+	gap: 0.25rem;
+}
+
+@media screen and (max-width: 37.5em) {
+	.form {
+		width: 100%;
+	}
+}
+
+/** Buttons **/
+
+.btn {
+	display: inline-block;
+	width: 100%;
+	padding-block: 0.9rem;
+	padding-inline: 1rem;
+	border-radius: 0.5rem;
+	outline: none;
+	border: none;
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 1.1rem;
+	letter-spacing: 0.1rem;
+	color: var(--text1);
+	margin-block: 0.5rem;
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.btn-primary {
+	background: linear-gradient(
+			to left top,
+			var(--bg-btn-primary) 0% /*bottom-right color*/,
+			var(--bg-btn-secondary) 50% /*middle color*/,
+			var(--bg-btn-primary) 100% /*top-left color*/
+		),
+		linear-gradient(var(--bg-body), var(--bg-body))
+			/*"faked" black background make sure to add last or it will appear before the transparent/colored layer*/;
+	box-shadow: var(--box-shadow);
+}
+
+.btn-primary-outline {
+	background: transparent;
+	border: 2px solid var(--bg-btn-primary);
+}
+
+.btn-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	background: transparent;
+	color: var(--text1);
+	border: none;
+	outline: none;
+}
+
+.btn-icon:hover {
+	background: rgba(255, 255, 255, 0.1);
+	cursor: pointer;
 }
